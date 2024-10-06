@@ -13,9 +13,9 @@ function mkdir (args) {
   do {
     if (!fs.existsSync(path.resolve(__dirname, args[0]))) {
 			fs.mkdirSync(path.resolve(__dirname, args[0]), { recursive: true });
-      console.log(`Folder ${path.resolve(__dirname, args[0])} created successfully`);
+      console.log(`Folder ${args[0]} created successfully`);
 		} else {
-			console.log(`Folder ${path.resolve(__dirname, args[0]) + ".js"} already exist`);
+			console.log(`Folder ${args[0]} already exist`);
 		}
     args.splice(0, 1);
   } while (args.length != 0);
@@ -31,9 +31,9 @@ function mkdir (args) {
 function mkfile (args) {
   if (!fs.existsSync(path.resolve(__dirname, args[0]) + ".js")) {
 		fs.openSync(path.resolve(__dirname, args[0]) + ".js", "w");
-		console.log(`File ${path.resolve(__dirname, args[0]) + ".js"} created successfully`);
+		console.log(`File ${args[0] + ".js"} created successfully`);
 	} else {
-		console.log(`File ${path.resolve(__dirname, args[0]) + ".js"} already exist`);
+		console.log(`File ${args[0] + ".js"} already exist`);
 	}
 }
 
