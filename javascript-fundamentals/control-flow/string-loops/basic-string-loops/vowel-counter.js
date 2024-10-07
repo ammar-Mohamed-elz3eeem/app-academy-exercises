@@ -8,7 +8,6 @@
  * @returns
  *     the number of vowels in the word.
  */
-
 function countVowels (word) {
   // your code here...
   const vowels = "aeiou";
@@ -20,17 +19,6 @@ function countVowels (word) {
   return counter;
 }
 
-// console.log(countVowels("bootcamp")); // => 3
-// console.log(countVowels("apple")); // => 2
-// console.log(countVowels("pizza")); // => 2
-
-const numbers = [5, 1, 4, 3, 2];
-for (var i = 0; i < numbers.length; i++) {
-	console.log(`This is message ${numbers[i]}`);
-  setTimeout(() => {
-    console.log(numbers, i);
-      console.log(`This is message ${numbers[i]}`);
-    },
-		numbers[i] * 100
-	);
-} 
+console.log(countVowels("bootcamp")); // => 3
+console.log(countVowels("apple")); // => 2
+console.log(countVowels("pizza")); // => 2
