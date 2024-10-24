@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "adventure-combat": "file:",
     "chai": "^4.3.4",
     "mocha": "^10.7.3"
   }

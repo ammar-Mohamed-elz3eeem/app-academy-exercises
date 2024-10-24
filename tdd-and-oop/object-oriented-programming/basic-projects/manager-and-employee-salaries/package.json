@@ -15,6 +15,7 @@
   "dependencies": {
     "chai": "^4.3.6",
     "chai-spies": "^1.0.0",
+    "class-employee-manager-long-practice": "file:",
     "mocha": "^9.2.0"
   }
 }
