@@ -79,9 +79,10 @@ class Enemy extends Character {
 		// Wait until cooldown expires, then act
 		const resetCooldown = function () {
 			this.cooldown = 0;
+			console.log("rest is called");
 			this.act();
 		};
-		setTimeout(resetCooldown, this.cooldown);
+		setTimeout(resetCooldown.bind(this), this.cooldown);
 	}
 
   /**

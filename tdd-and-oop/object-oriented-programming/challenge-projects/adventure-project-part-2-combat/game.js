@@ -1,105 +1,108 @@
-const readline = require('readline');
+// const readline = require('readline');
 
-const { Player } = require('./class/player');
-const { World } = require('./class/world');
+const { Enemy } = require("./class/enemy");
 
-const worldData = require('./data/world-data');
+// const { Player } = require('./class/player');
+// const { World } = require('./class/world');
 
-let player;
+// const worldData = require('./data/world-data');
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+// let player;
 
-function printHelp() {
-  console.log("Controls:")
-  console.log("  Type 'h' for help");
-  console.log("  Type 'q' to quit");
-  console.log("  Type 'l' to look around");
-  console.log("  Type 'i' to check your inventory");
-  console.log("  Type 'take <item>' to take an item");
-  console.log("  Type 'drop <item>' to drop an item");
-  console.log("  Type 'eat <item>' to eat a food item");
-  console.log("  Type 'n', 's', 'e', 'w' to move");
-  console.log("");
-}
+// const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout
+// });
 
-function startGame() {
-  console.clear();
-  console.log("Welcome to App Academy Adventure!\n");
+// function printHelp() {
+//   console.log("Controls:")
+//   console.log("  Type 'h' for help");
+//   console.log("  Type 'q' to quit");
+//   console.log("  Type 'l' to look around");
+//   console.log("  Type 'i' to check your inventory");
+//   console.log("  Type 'take <item>' to take an item");
+//   console.log("  Type 'drop <item>' to drop an item");
+//   console.log("  Type 'eat <item>' to eat a food item");
+//   console.log("  Type 'n', 's', 'e', 'w' to move");
+//   console.log("");
+// }
 
-  rl.question('Please enter your name: ', (name) => {
-    console.clear();
-    console.log(`Hello, ${name}!\n`);
+// function startGame() {
+//   console.clear();
+//   console.log("Welcome to App Academy Adventure!\n");
 
-    // Create the world and player
-    World.loadWorld(worldData, player);
-    player = new Player(name, World.rooms[1]);
-    World.setPlayer(player);
+//   rl.question('Please enter your name: ', (name) => {
+//     console.clear();
+//     console.log(`Hello, ${name}!\n`);
 
-    // Show commands
-    printHelp();
+//     // Create the world and player
+//     World.loadWorld(worldData, player);
+//     player = new Player(name, World.rooms[1]);
+//     World.setPlayer(player);
 
-    rl.question('\nHit RETURN to start your adventure\n', () => {
+//     // Show commands
+//     printHelp();
 
-      console.clear();
-      player.currentRoom.printRoom();
+//     rl.question('\nHit RETURN to start your adventure\n', () => {
 
-      processCommand();
-    });
-  });
-}
+//       console.clear();
+//       player.currentRoom.printRoom();
+
+//       processCommand();
+//     });
+//   });
+// }
 
 
-function processCommand() {
+// function processCommand() {
 
-  rl.question('> ', (cmd) => {
-    cmd = cmd.toLowerCase();
+//   rl.question('> ', (cmd) => {
+//     cmd = cmd.toLowerCase();
 
-    if (cmd === 'h') {
-      printHelp();
+//     if (cmd === 'h') {
+//       printHelp();
 
-    } else if (cmd === 'q') {
-      rl.close();
-      process.exit();
+//     } else if (cmd === 'q') {
+//       rl.close();
+//       process.exit();
 
-    } else if (cmd === 'l') {
-      player.currentRoom.printRoom();
+//     } else if (cmd === 'l') {
+//       player.currentRoom.printRoom();
 
-    } else if (cmd === 'i') {
-      player.printInventory();
+//     } else if (cmd === 'i') {
+//       player.printInventory();
 
-    } else if (['n', 's', 'e', 'w'].indexOf(cmd) >= 0) {
-      let direction = cmd;
-      player.move(direction);
+//     } else if (['n', 's', 'e', 'w'].indexOf(cmd) >= 0) {
+//       let direction = cmd;
+//       player.move(direction);
 
-    } else if (cmd.startsWith("take ")) {
-      let itemName = cmd.split(" ")[1];
+//     } else if (cmd.startsWith("take ")) {
+//       let itemName = cmd.split(" ")[1];
 
-      player.takeItem(itemName);
+//       player.takeItem(itemName);
 
-    } else if (cmd.startsWith("drop ")) {
-      let itemName = cmd.split(" ")[1];
+//     } else if (cmd.startsWith("drop ")) {
+//       let itemName = cmd.split(" ")[1];
 
-      player.dropItem(itemName);
+//       player.dropItem(itemName);
 
-    } else if (cmd.startsWith("eat ")) {
-      let itemName = cmd.split(" ")[1];
+//     } else if (cmd.startsWith("eat ")) {
+//       let itemName = cmd.split(" ")[1];
 
-      player.eatItem(itemName);
+//       player.eatItem(itemName);
 
-    } else if (cmd.startsWith("hit ")) {
-      let enemyName = cmd.split(" ")[1];
+//     } else if (cmd.startsWith("hit ")) {
+//       let enemyName = cmd.split(" ")[1];
 
-      player.hit(enemyName);
+//       player.hit(enemyName);
 
-    } else {
-      console.log("Invalid command. Type 'h' for help.");
-    }
+//     } else {
+//       console.log("Invalid command. Type 'h' for help.");
+//     }
 
-    processCommand();
-  });
-}
+//     processCommand();
+//   });
+// }
 
-startGame();
+// startGame();
+(new Enemy()).act();

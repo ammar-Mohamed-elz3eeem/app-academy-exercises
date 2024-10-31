@@ -16,6 +16,7 @@
   "dependencies": {
     "chai": "^4.2.0",
     "chai-spies": "^1.0.0",
+    "context-long-practice": "file:",
     "mocha": "^6.2.2"
   }
 }
