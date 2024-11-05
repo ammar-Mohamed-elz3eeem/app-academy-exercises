@@ -1,0 +1,20 @@
+{
+  "name": "adventure-combat",
+  "version": "1.0.0",
+  "description": "Welcome to App Academy Adventure! For this project, you will add features to a text adventure using OOP principles.",
+  "main": "game.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "adventure-combat": "file:",
+    "chai": "^4.3.4",
+    "chai-spies": "^1.1.0",
+    "mocha": "^10.7.3"
+  }
+}
